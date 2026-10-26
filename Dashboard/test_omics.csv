@@ -1,0 +1,7 @@
+gene,condition,expression
+BRCA1,Control,10.5
+BRCA1,Treated,2.1
+TP53,Control,15.0
+TP53,Treated,18.2
+EGFR,Control,5.4
+EGFR,Treated,22.1
