@@ -1,0 +1,373 @@
+/* ============================================================
+   PALETTE BIOTECH — Dark Edition
+   Thème : laboratoire computational, ADN, code scientifique
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
+:root {
+    /* Couleurs principales */
+    --bg-deep:        #020817;
+    --bg-main:        #050f1f;
+    --bg-surface:     #0a1628;
+    --card-bg:        rgba(10, 22, 40, 0.75);
+    --card-bg-hover:  rgba(15, 30, 55, 0.90);
+
+    /* Accents biotech */
+    --dna-green:      #00ffa3;
+    --dna-cyan:       #00d4ff;
+    --dna-purple:     #7c3aed;
+    --dna-magenta:    #f0abfc;
+    --code-yellow:    #fbbf24;
+    --code-orange:    #fb923c;
+
+    /* Textes */
+    --text-primary:   #e2e8f0;
+    --text-secondary: #64748b;
+    --text-muted:     #334155;
+    --text-code:      #00ffa3;
+
+    /* Bordures & ombres */
+    --border:         rgba(0, 255, 163, 0.15);
+    --border-hover:   rgba(0, 212, 255, 0.4);
+    --glow-green:     0 0 20px rgba(0, 255, 163, 0.2);
+    --glow-cyan:      0 0 30px rgba(0, 212, 255, 0.15);
+    --shadow-card:    0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================================
+   FOND PRINCIPAL — molécule ADN + fragments de code
+   ============================================================ */
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding: 24px;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+
+    /* Couche 1 : dégradés radiaux biocolorés */
+    background-image:
+        radial-gradient(ellipse 60% 40% at 10% 15%,  rgba(0, 255, 163, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 35% at 90% 80%,  rgba(0, 212, 255, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 30% at 50% 50%,  rgba(124, 58, 237, 0.05) 0%, transparent 60%),
+
+        /* Couche 2 : Double hélice ADN traversant la page */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='600' viewBox='0 0 180 600'%3E%3Cdefs%3E%3Cfilter id='glow'%3E%3CfeGaussianBlur stdDeviation='2' result='coloredBlur'/%3E%3CfeMerge%3E%3CfeMergeNode in='coloredBlur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Cg filter='url(%23glow)' opacity='0.18'%3E%3Cpath d='M40 0 C40 0 140 30 140 60 C140 90 40 120 40 150 C40 180 140 210 140 240 C140 270 40 300 40 330 C40 360 140 390 140 420 C140 450 40 480 40 510 C40 540 140 570 140 600' stroke='%2300ffa3' stroke-width='2.5' fill='none' stroke-dasharray='none'/%3E%3Cpath d='M140 0 C140 0 40 30 40 60 C40 90 140 120 140 150 C140 180 40 210 40 240 C40 270 140 300 140 330 C140 360 40 390 40 420 C40 450 140 480 140 510 C140 540 40 570 40 600' stroke='%2300d4ff' stroke-width='2.5' fill='none'/%3E%3Cline x1='40' y1='0'   x2='140' y2='0'   stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='90' y1='15'  x2='90' y2='15'  stroke='%2300d4ff' stroke-width='1'   opacity='0.4'/%3E%3Cline x1='140' y1='30' x2='40'  y2='30'  stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='115' y1='45' x2='65'  y2='45'  stroke='%2300d4ff' stroke-width='1'   opacity='0.4'/%3E%3Cline x1='40' y1='60'  x2='140' y2='60'  stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='65'  y1='75' x2='115' y2='75'  stroke='%2300d4ff' stroke-width='1'   opacity='0.4'/%3E%3Cline x1='140' y1='90' x2='40'  y2='90'  stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='90' y1='105' x2='90' y2='105' stroke='%2300d4ff' stroke-width='1'   opacity='0.4'/%3E%3Cline x1='40' y1='120' x2='140' y2='120' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='115' y1='135' x2='65' y2='135' stroke='%2300d4ff' stroke-width='1'  opacity='0.4'/%3E%3Cline x1='140' y1='150' x2='40' y2='150' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='65' y1='165' x2='115' y2='165' stroke='%2300d4ff' stroke-width='1'  opacity='0.4'/%3E%3Cline x1='40' y1='180' x2='140' y2='180' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='90' y1='195' x2='90' y2='195' stroke='%2300d4ff' stroke-width='1'  opacity='0.4'/%3E%3Cline x1='140' y1='210' x2='40' y2='210' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='115' y1='225' x2='65' y2='225' stroke='%2300d4ff' stroke-width='1'  opacity='0.4'/%3E%3Cline x1='40' y1='240' x2='140' y2='240' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='65' y1='255' x2='115' y2='255' stroke='%2300d4ff' stroke-width='1'  opacity='0.4'/%3E%3Cline x1='140' y1='270' x2='40' y2='270' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='300' x2='140' y2='300' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='140' y1='330' x2='40' y2='330' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='360' x2='140' y2='360' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='140' y1='390' x2='40' y2='390' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='420' x2='140' y2='420' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='140' y1='450' x2='40' y2='450' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='480' x2='140' y2='480' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='140' y1='510' x2='40' y2='510' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='540' x2='140' y2='540' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='140' y1='570' x2='40' y2='570' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3Cline x1='40' y1='600' x2='140' y2='600' stroke='%2300ffa3' stroke-width='1.2' opacity='0.6'/%3E%3C/g%3E%3C/svg%3E"),
+
+        /* Couche 3 : fragments de code en filigrane */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Ctext font-family='monospace' font-size='11' fill='%2300ffa3' opacity='0.04'%3E%3Ctspan x='10' dy='20'%3Edef normalize(df, method='log2'):%3C/tspan%3E%3Ctspan x='10' dy='18'%3E    return np.log2(df + 1)%3C/tspan%3E%3Ctspan x='10' dy='18'%3Eclass OmicsLoader(CSVLoader):%3C/tspan%3E%3Ctspan x='10' dy='18'%3E    def validate(self) -%3E bool:%3C/tspan%3E%3Ctspan x='10' dy='18'%3E        return super().validate()%3C/tspan%3E%3Ctspan x='10' dy='18'%3EATGCGATCGGCTATGCGAT%3C/tspan%3E%3Ctspan x='10' dy='18'%3Epd.read_csv(filepath)%3C/tspan%3E%3Ctspan x='10' dy='18'%3Edf.groupby('gene').agg(...)%3C/tspan%3E%3Ctspan x='10' dy='18'%3ECGTATGCGATCGATCGGCT%3C/tspan%3E%3Ctspan x='10' dy='18'%3Eimport pandas as pd%3C/tspan%3E%3Ctspan x='10' dy='18'%3Enp.log2(expression + 1)%3C/tspan%3E%3Ctspan x='10' dy='18'%3EGTCGATCGATCGTAGCGAT%3C/tspan%3E%3C/text%3E%3C/svg%3E");
+
+    background-size:
+        100% 100%,
+        100% 100%,
+        100% 100%,
+        180px 600px,
+        400px 300px;
+
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        left center,
+        right bottom;
+
+    background-repeat:
+        no-repeat,
+        no-repeat,
+        no-repeat,
+        repeat-y,
+        repeat;
+
+    background-attachment: fixed;
+}
+
+/* ============================================================
+   PSEUDO-ÉLÉMENTS : particules flottantes en fond
+   ============================================================ */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle 2px at 15% 25%,  var(--dna-green)  0%, transparent 100%),
+        radial-gradient(circle 1px at 75% 15%,  var(--dna-cyan)   0%, transparent 100%),
+        radial-gradient(circle 2px at 85% 60%,  var(--dna-green)  0%, transparent 100%),
+        radial-gradient(circle 1px at 25% 80%,  var(--dna-cyan)   0%, transparent 100%),
+        radial-gradient(circle 1px at 55% 40%,  var(--dna-purple) 0%, transparent 100%),
+        radial-gradient(circle 2px at 40% 70%,  var(--dna-green)  0%, transparent 100%),
+        radial-gradient(circle 1px at 92% 35%,  var(--dna-cyan)   0%, transparent 100%);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body > * { position: relative; z-index: 1; }
+
+/* ============================================================
+   EN-TÊTE
+   ============================================================ */
+
+.app-header {
+    background: linear-gradient(135deg,
+        rgba(10, 22, 40, 0.95) 0%,
+        rgba(5, 15, 31, 0.98) 100%
+    );
+    border: 1px solid var(--border);
+    border-top: 2px solid var(--dna-green);
+    border-radius: 16px;
+    padding: 22px 32px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--glow-green), var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Barre lumineuse décorative en bas du header */
+.app-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        var(--dna-green),
+        var(--dna-cyan),
+        transparent
+    );
+    opacity: 0.6;
+}
+
+.app-header h1 {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--dna-green), var(--dna-cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+/* Badge "version" ou "lab" dans le header */
+.app-header .badge-lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    background: rgba(0, 255, 163, 0.1);
+    border: 1px solid var(--dna-green);
+    color: var(--dna-green);
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+}
+
+/* ============================================================
+   CARTES
+   ============================================================ */
+
+.dash-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-card);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.dash-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--glow-cyan), var(--shadow-card);
+    transform: translateY(-2px);
+}
+
+/* Titre de section dans une carte */
+.dash-card .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--dna-cyan);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dash-card .card-title::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    background: var(--dna-green);
+    border-radius: 50%;
+    box-shadow: 0 0 6px var(--dna-green);
+}
+
+/* ============================================================
+   ZONE UPLOAD CSV
+   ============================================================ */
+
+.upload-zone {
+    border: 2px dashed rgba(0, 255, 163, 0.3) !important;
+    border-radius: 12px !important;
+    background: rgba(0, 255, 163, 0.03) !important;
+    color: var(--text-secondary) !important;
+    padding: 32px !important;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.upload-zone:hover {
+    background: rgba(0, 255, 163, 0.08) !important;
+    border-color: var(--dna-green) !important;
+    color: var(--dna-green) !important;
+    box-shadow: var(--glow-green);
+}
+
+/* ============================================================
+   DROPDOWNS & SLIDERS DASH
+   ============================================================ */
+
+.Select-control {
+    background: rgba(10, 22, 40, 0.9) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--text-primary) !important;
+    transition: border-color 0.2s ease;
+}
+
+.Select-control:hover,
+.Select-control:focus {
+    border-color: var(--dna-cyan) !important;
+    box-shadow: 0 0 0 2px rgba(0, 212, 255, 0.15) !important;
+}
+
+.Select-menu-outer {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+}
+
+.Select-option {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.875rem;
+    transition: background 0.15s ease;
+}
+
+.Select-option:hover,
+.Select-option.is-focused {
+    background: rgba(0, 255, 163, 0.08) !important;
+    color: var(--dna-green) !important;
+}
+
+/* ============================================================
+   NOTIFICATIONS
+   ============================================================ */
+
+.notification {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border-left: 3px solid;
+    margin-top: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+.notification.info {
+    background: rgba(0, 212, 255, 0.08);
+    border-color: var(--dna-cyan);
+    color: var(--dna-cyan);
+}
+
+.notification.success {
+    background: rgba(0, 255, 163, 0.08);
+    border-color: var(--dna-green);
+    color: var(--dna-green);
+}
+
+.notification.error {
+    background: rgba(239, 68, 68, 0.08);
+    border-color: #ef4444;
+    color: #f87171;
+}
+
+/* ============================================================
+   GRAPHIQUES PLOTLY — override fond
+   ============================================================ */
+
+.js-plotly-plot .plotly,
+.js-plotly-plot .plotly .svg-container {
+    background: transparent !important;
+}
+
+/* ============================================================
+   SCROLLBAR CUSTOM
+   ============================================================ */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 163, 0.25);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--dna-green); }
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(1.4); }
+}
+
+.live-dot {
+    display: inline-block;
+    width: 7px; height: 7px;
+    background: var(--dna-green);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--dna-green);
+    animation: pulse-dot 2s infinite;
+}
+
+/* ============================================================
+   TYPOGRAPHIE CODE
+   ============================================================ */
+
+code, .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    color: var(--text-code);
+    background: rgba(0, 255, 163, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+}

@@ -105,4 +105,4 @@ class VolcanoPlot(BasePlot):
             title=self.title, 
             color_discrete_map={True: '#e03131', False: '#ced4da'}
         )
-        self.figure.update_layout(plot_bgcolor='white', paper_bgcolor='white')s
+        self.figure.update_layout(plot_bgcolor='white', paper_bgcolor='white')
